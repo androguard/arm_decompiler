@@ -1,0 +1,25 @@
+[package]
+name = "arm_decompiler"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+rust-version = "1.75"
+authors = ["androguard"]
+description = "ARM64 → C-like decompiler for Mach-O, ELF, and other ARM64 targets (CFG / IR / regions)"
+repository = "https://github.com/androguard/arm_decompiler"
+readme = "README.md"
+
+[features]
+default = ["std"]
+# Enables optional `swift demangle` toolchain fallback (Ghidra-style).
+std = []
+
+[dependencies]
+# Local apple-re / arm_disassembler siblings until published separately.
+macho_core = { path = "../apple-re/crates/macho_core" }
+apple_metadata = { path = "../apple-re/crates/apple_metadata" }
+arm_disassembler = { path = "../arm_disassembler" }
+ipa_vfs = { path = "../apple-re/crates/ipa_vfs" }
+gimli = { version = "0.32", default-features = false, features = ["read", "endian-reader"] }
+
+[dev-dependencies]

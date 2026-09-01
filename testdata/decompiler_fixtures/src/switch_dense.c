@@ -1,0 +1,71 @@
+/* Dense switch intended to compile to an ARM64 jump table at -O2. */
+extern int jt_a0(void);
+extern int jt_a1(void);
+extern int jt_a2(void);
+extern int jt_a3(void);
+extern int jt_a4(void);
+extern int jt_a5(void);
+extern int jt_a6(void);
+extern int jt_a7(void);
+extern int jt_a8(void);
+extern int jt_a9(void);
+extern int jt_a10(void);
+extern int jt_a11(void);
+extern int jt_a12(void);
+extern int jt_a13(void);
+extern int jt_a14(void);
+extern int jt_a15(void);
+extern int jt_a16(void);
+extern int jt_a17(void);
+extern int jt_a18(void);
+extern int jt_a19(void);
+extern int jt_a20(void);
+extern int jt_a21(void);
+extern int jt_a22(void);
+extern int jt_a23(void);
+extern int jt_a24(void);
+extern int jt_a25(void);
+extern int jt_a26(void);
+extern int jt_a27(void);
+extern int jt_a28(void);
+extern int jt_a29(void);
+extern int jt_a30(void);
+extern int jt_a31(void);
+
+int switch_dense(int x) {
+    switch (x) {
+    case 0: return jt_a0();
+    case 1: return jt_a1();
+    case 2: return jt_a2();
+    case 3: return jt_a3();
+    case 4: return jt_a4();
+    case 5: return jt_a5();
+    case 6: return jt_a6();
+    case 7: return jt_a7();
+    case 8: return jt_a8();
+    case 9: return jt_a9();
+    case 10: return jt_a10();
+    case 11: return jt_a11();
+    case 12: return jt_a12();
+    case 13: return jt_a13();
+    case 14: return jt_a14();
+    case 15: return jt_a15();
+    case 16: return jt_a16();
+    case 17: return jt_a17();
+    case 18: return jt_a18();
+    case 19: return jt_a19();
+    case 20: return jt_a20();
+    case 21: return jt_a21();
+    case 22: return jt_a22();
+    case 23: return jt_a23();
+    case 24: return jt_a24();
+    case 25: return jt_a25();
+    case 26: return jt_a26();
+    case 27: return jt_a27();
+    case 28: return jt_a28();
+    case 29: return jt_a29();
+    case 30: return jt_a30();
+    case 31: return jt_a31();
+    default: return -1;
+    }
+}
