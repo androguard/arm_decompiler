@@ -126,6 +126,19 @@ pub fn decompile_text_slice(
     decompile_insns(&insns, name, symbols, opts, bounds, None, None)
 }
 
+/// Decompile an ELF function by symbol name using caller-supplied image bytes + symbol table.
+///
+/// Prefer resolving bounds via `elf_core` in the host; this helper wraps [`decompile_text_slice`].
+pub fn decompile_elf_symbol(
+    code: &[u8],
+    base_vaddr: u64,
+    symbol: &str,
+    symbols: &SymbolTable,
+    opts: &DecompilerOptions,
+) -> Result<FunctionDecompile> {
+    decompile_text_slice(code, base_vaddr, symbol, symbols, opts)
+}
+
 /// Decompile the function whose symbol is `name` (or demangled / ObjC selector form).
 pub fn decompile_macho_symbol(
     macho_bytes: &[u8],

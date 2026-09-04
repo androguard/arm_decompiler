@@ -22,6 +22,9 @@ fn classifies_pac_opcodes() {
     let mut dec = Decoder::new(&[0x3f, 0x23, 0x03, 0xd5], 0);
     assert_eq!(dec.decode().mnemonic, Mnemonic::Paciasp);
     assert!(is_pac_hint(Mnemonic::Paciasp));
+    let mut dec = Decoder::new(&[0xbf, 0x23, 0x03, 0xd5], 0);
+    assert_eq!(dec.decode().mnemonic, Mnemonic::Autiasp);
+    assert!(is_pac_hint(Mnemonic::Autiasp));
     let mut dec = Decoder::new(&[0xff, 0x0b, 0x5f, 0xd6], 0);
     assert_eq!(dec.decode().mnemonic, Mnemonic::Retaa);
     assert!(is_pac_return(Mnemonic::Retaa));
@@ -48,7 +51,8 @@ fn decompile_pac_epilogue_is_clean() {
     assert!(
         !f.source.contains("paciasp")
             && !f.source.contains("autiasp")
-            && !f.source.contains("retaa"),
+            && !f.source.contains("retaa")
+            && !f.source.contains("hint"),
         "PAC ops should be elided:\n{}",
         f.source
     );

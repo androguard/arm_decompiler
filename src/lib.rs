@@ -18,6 +18,7 @@ mod decompile;
 mod dwarf;
 mod emit;
 mod error;
+mod flirt;
 mod ir;
 mod json;
 mod jumptable;
@@ -39,6 +40,7 @@ mod swift_runtime;
 mod tokens;
 mod types;
 mod value_flow;
+mod xrefs;
 
 pub use blocks::{
     is_block_invoke_symbol, rewrite_block_invokes, signature_hint_from_descriptor_symbol,
@@ -48,8 +50,9 @@ pub use bounds::{
 };
 pub use cfg::{fold_cmp_branch, BlockEnd, BlockId, CfgBlock, FunctionCfg};
 pub use decompile::{
-    decompile_function, decompile_macho_all, decompile_macho_symbol, decompile_text_slice,
-    list_macho_functions, DecompilationMode, DecompilerOptions, FunctionDecompile,
+    decompile_elf_symbol, decompile_function, decompile_macho_all, decompile_macho_symbol,
+    decompile_text_slice, list_macho_functions, DecompilationMode, DecompilerOptions,
+    FunctionDecompile,
 };
 pub use dwarf::{
     detect_unwind_hints, dwarf_param_renames, find_subprogram, load_dwarf_subprograms,
@@ -57,6 +60,7 @@ pub use dwarf::{
 };
 pub use emit::emit_function;
 pub use error::{Error, Result};
+pub use flirt::flirt_match_names;
 pub use ir::{BinOp, Expr, Place, Stmt, VarId};
 pub use json::{function_to_json, symbol_to_filename};
 pub use jumptable::{
@@ -95,4 +99,8 @@ pub use tokens::{
 pub use types::Ty;
 pub use value_flow::{
     analyze_flows, analyze_flows_default, FlowFinding, FlowRules, TaintKind,
+};
+pub use xrefs::{
+    build_macho_xrefs, call_graph, scan_code_xrefs, xref_kind_name, xref_summary, xrefs_from,
+    xrefs_to, CallEdge, CallGraph, Xref, XrefIndex, XrefKind,
 };

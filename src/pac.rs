@@ -27,6 +27,10 @@ pub fn is_pac_hint(m: Mnemonic) -> bool {
             | Mnemonic::Pacga
             | Mnemonic::Paciasp
             | Mnemonic::Pacibsp
+            | Mnemonic::Paciaz
+            | Mnemonic::Pacibz
+            | Mnemonic::Pacia1716
+            | Mnemonic::Pacib1716
             | Mnemonic::Pacia171615
             | Mnemonic::Pacib171615
             | Mnemonic::Paciasppc
@@ -43,6 +47,8 @@ pub fn is_pac_hint(m: Mnemonic) -> bool {
             | Mnemonic::Autdzb
             | Mnemonic::Autiasp
             | Mnemonic::Autibsp
+            | Mnemonic::Autiaz
+            | Mnemonic::Autibz
             | Mnemonic::Autia1716
             | Mnemonic::Autib1716
             | Mnemonic::Autia171615
@@ -51,6 +57,7 @@ pub fn is_pac_hint(m: Mnemonic) -> bool {
             | Mnemonic::Autibsppc
             | Mnemonic::Xpaci
             | Mnemonic::Xpacd
+            | Mnemonic::Xpaclri
     )
 }
 
